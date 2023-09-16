@@ -1,5 +1,5 @@
 # react-web-app
-Practice using react
+Practice using react and APIs (github rest API)
 
 Not perfect. Have yet to fix some problems w/ spacing and if user doesn't exist.
 
