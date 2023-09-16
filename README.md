@@ -1,7 +1,7 @@
 # react-web-app
 Practice using react
 
-Wonky on mobile xd
+Not perfect. Have yet to fix some problems w/ spacing and if user doesn't exist.
 
 https://devfinder-repo.vercel.app/
 https://devfinder-repo.vercel.app/
