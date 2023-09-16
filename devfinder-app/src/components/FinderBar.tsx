@@ -1,4 +1,23 @@
-function Finder() {
+import { useState } from "react";
+
+function Finder(props) {
+  const [inputName, setInputName] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    fetch(`https://api.github.com/users/${inputName}`)
+      .then((res) => res.json())
+      .then(
+        (result) => {
+          props.handleUserData(result);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+  };
+
   return (
     <div className="flex bg-gray-900 h-[5rem] mb-3 w-[50rem] rounded-xl">
       <div className="flex pl-5">
@@ -32,20 +51,33 @@ function Finder() {
           </g>
         </svg>
       </div>
-      <div className="flex justify-center pl-6 text-lg">
-        <input
-          className="flex w-[36rem] bg-gray-900 outline-none text-white placeholder-white"
-          placeholder="Search Github Name..."
-        ></input>
-      </div>
+      <form className="flex" onSubmit={handleSubmit}>
+        <div className="flex justify-center pl-6 text-lg">
+          <input
+            type="text"
+            required
+            value={inputName}
+            onChange = {(e) => setInputName(e.target.value)}
+            className="flex placeholder:opacity-20 w-[36rem] bg-gray-900 outline-none text-white placeholder-white"
+            placeholder="Search Github Name..."
+          ></input>
+        </div>
 
-      <div className="flex w-28 justify-center items-center">
-        <button className="flex justify-center items-center h-11 w-24 bg-gray-800 rounded-xl">
-          <h5 className="text-white">Search</h5>
-        </button>
-      </div>
+        <div
+          id="search-button"
+          className="flex w-28 justify-center items-center"
+        >
+          <button
+            type="submit"
+            className="flex justify-center hover:bg-indigo-600 hover:delay-75 bg items-center h-11 w-24 bg-gray-800 rounded-xl"
+          >
+            <h5 className="flex text-white">Search</h5>
+          </button>
+        </div>
+      </form>
     </div>
   );
 }
 
 export default Finder;
+
