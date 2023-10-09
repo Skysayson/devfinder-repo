@@ -17,17 +17,17 @@ function App() {
       </h5>
      <Finder handleUserData={handleUserData}></Finder>
      {userData ? ( <FinderBox
-        ProfilePic={userData?.avatar_url}
-        ProfileName={userData?.login}
-        Location={userData?.location}
-        Twitter={userData?.twitter_username}
-        Repos={userData?.public_repos}
-        Bio={userData?.bio}
-        Followers={userData?.followers}
-        Following={userData?.following}
-        Blog={userData?.blog}
-        Org={userData?.company}
-        Create={userData?.id}
+        ProfilePic={userData.avatar_url}
+        ProfileName={userData.login}
+        Location={userData.location}
+        Twitter={userData.twitter_username}
+        Repos={userData.public_repos}
+        Bio={userData.bio}
+        Followers={userData.followers}
+        Following={userData.following}
+        Blog={userData.blog}
+        Org={userData.company}
+        Create={userData.id}
       /> ) : null}
     </div>
   );
